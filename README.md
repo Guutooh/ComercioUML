@@ -8,6 +8,8 @@
 
 Este projeto prático é parte do curso de Modelagem de Dados UML (Análise&Projeto Orientado a Objetos), onde exploramos diversos conceitos e técnicas essenciais para o desenvolvimento de aplicações Java com Spring Boot. A aplicação desenvolvida neste projeto tem como objetivo a aplicação da modelagem conceitual com UML.
 
+<a href='https://postimg.cc/jWzndjWg'><img src='https://i.postimg.cc/0N4YnM9s/Screenshot-34.jpg' border='0' alt='Screenshot-34'/></a>
+
 ## Ferramentas e Tecnologias Utilizadas
 
 - **Spring Boot:** Framework de desenvolvimento para criação de aplicações Java.
