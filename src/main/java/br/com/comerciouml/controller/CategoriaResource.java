@@ -20,7 +20,10 @@ public class CategoriaResource {
     public ResponseEntity<?> Procurar(@PathVariable Integer id) {
 
          return ResponseEntity.status(HttpStatus.OK).body(service.busca(id));
-
     }
+
+
+
+
 
 }
