@@ -1,5 +1,6 @@
 package br.com.comerciouml.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,6 +28,7 @@ public class Produto implements Serializable {
 
     private Double preco;
 
+    @JsonBackReference // Para o relacionamento não entrar em um looping entre as duas relações
     @ManyToMany
     @JoinTable(name = "PRODUTO_CATEGORIA", //nome da tabela intermediaria do muitos x muitos
             joinColumns = @JoinColumn(name = "produto_id"), // nome da chave estrangeira correspondente a produto

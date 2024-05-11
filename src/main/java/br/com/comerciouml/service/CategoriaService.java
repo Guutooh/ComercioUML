@@ -2,6 +2,7 @@ package br.com.comerciouml.service;
 
 import br.com.comerciouml.domain.Categoria;
 import br.com.comerciouml.repositories.CategoriaRepository;
+import br.com.comerciouml.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,7 @@ public class CategoriaService {
 
          Optional<Categoria> optional = repository.findById(id);
 
-        return optional.orElse(null);
+        return optional.orElseThrow(() -> new ObjectNotFoundException(
+                "Objeto não encontrado! Id: " + id + ", Tipo: " + Categoria.class.getName()));
     }
 }
