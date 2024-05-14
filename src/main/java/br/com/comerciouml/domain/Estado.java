@@ -1,5 +1,6 @@
 package br.com.comerciouml.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,6 +26,7 @@ public class Estado implements Serializable {
 
     private String nome;
 
+    @JsonBackReference
     @OneToMany(mappedBy="estado")
     private List<Cidade> cidades = new ArrayList<>();
 

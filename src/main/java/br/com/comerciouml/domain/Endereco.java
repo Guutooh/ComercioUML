@@ -1,6 +1,7 @@
 package br.com.comerciouml.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,6 +28,7 @@ public class Endereco implements Serializable {
     private String bairro;
     private String cep;
 
+    @JsonBackReference // Para o relacionamento não entrar em um looping entre as duas relações
     @ManyToOne
     @JoinColumn(name="cliente_id")
     private Cliente cliente;

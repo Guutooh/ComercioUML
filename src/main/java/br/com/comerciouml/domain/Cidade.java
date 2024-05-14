@@ -1,5 +1,6 @@
 package br.com.comerciouml.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,6 +24,7 @@ public class Cidade implements Serializable {
 
     private String nome;
 
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name="estado_id")
     private Estado estado;

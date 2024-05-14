@@ -1,6 +1,8 @@
 package br.com.comerciouml.domain;
 
 import br.com.comerciouml.enums.TipoCliente;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,6 +36,7 @@ public class Cliente implements Serializable {
 
     private Integer tipoCliente;
 
+    @JsonManagedReference // Para o relacionamento não entrar em um looping entre as duas relações
     @OneToMany(mappedBy = "cliente")
     private List<Endereco> enderecos = new ArrayList<>();;
 
