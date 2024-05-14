@@ -1,18 +1,14 @@
 package br.com.comerciouml;
 
-import br.com.comerciouml.domain.Categoria;
-import br.com.comerciouml.domain.Cidade;
-import br.com.comerciouml.domain.Estado;
-import br.com.comerciouml.domain.Produto;
-import br.com.comerciouml.repositories.CategoriaRepository;
-import br.com.comerciouml.repositories.CidadeRepository;
-import br.com.comerciouml.repositories.EstadoRepository;
-import br.com.comerciouml.repositories.ProdutoRepository;
+import br.com.comerciouml.domain.*;
+import br.com.comerciouml.enums.TipoCliente;
+import br.com.comerciouml.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
 @SpringBootApplication
@@ -26,6 +22,10 @@ public class ComercioumlApplication implements CommandLineRunner {
 	CidadeRepository cidadeRepository;
 	@Autowired
 	EstadoRepository estadoRepository;
+	@Autowired
+	private ClienteRepository clienteRepository;
+	@Autowired
+	private EnderecoRepository enderecoRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ComercioumlApplication.class, args);
@@ -70,6 +70,21 @@ public class ComercioumlApplication implements CommandLineRunner {
 
 		estadoRepository.saveAll(Arrays.asList(estado1,estado2));
 		cidadeRepository.saveAll(Arrays.asList(cidade1,cidade2,cidade3));
+
+		Cliente cliente = new Cliente(null, "Maria Silva", "maria@gmail.com", "36378912377", TipoCliente.PESSOAFISICA);
+		cliente.getTelefones().addAll(Arrays.asList("27363323", "93838393"));
+
+
+		Endereco endereco1 = new Endereco(null, "Rua Flores", "300", "Apto 303", "Jardim", "38220834", cliente, cidade1);
+		Endereco endereco2 = new Endereco(null, "Avenida Matos", "105", "Sala 800", "Centro", "38777012", cliente, cidade2);
+
+		cliente.getEnderecos().addAll(Arrays.asList(endereco1, endereco2));
+
+		clienteRepository.saveAll(Arrays.asList(cliente));
+		enderecoRepository.saveAll(Arrays.asList(endereco1, endereco2));
+
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+		
 
 	}
 }
