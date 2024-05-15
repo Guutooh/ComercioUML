@@ -12,6 +12,23 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
+/*
+Em teste realizados, o uso de @JsonManagedReference/@JsonBackRefence apresentou alguns problemas com o
+envio de dados Json em requisições .
+
+Assim, ao invés de usar @JsonManagedReference/@JsonBackRefence, vamos simplesmente utilizar o
+@JsonIgnore no lado da associação que não deve ser serializada. Para isto faça:
+
+- Para cada classe de domínio:
+
+- Apague as anotações @JsonManagedReference existentes
+- Troque as anotações @JsonBackRefence por @JsonIgnore
+
+
+PROCEDIMENTO NÃO REALIZADO, PRECISA-SER TESTADO
+
+* */
+
 @SpringBootApplication
 public class ComercioumlApplication implements CommandLineRunner {
 
