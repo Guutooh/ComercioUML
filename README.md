@@ -34,3 +34,7 @@ Este projeto está licenciado sob a [Licença MIT](LICENSE).
 
 
 -------------------------------
+
+## Referência
+
+Projeto desenvolvido seguindo o curso: https://www.udemy.com/course/uml-diagrama-de-classes/
